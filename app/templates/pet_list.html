@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pet List</h1>
+    <ul>
+            {% for pet in pets %}
+                <li>
+                    <h2>{{pet.pet_name}}</h2>
+
+                    {% if pet.pet_image %}
+                       <img src="{{ pet.pet_image.url }}" alt="{{pet.pet_name}}" width="200">
+                    {% endif %} <br>
+                    <a href="{% url 'del_pet' pet.id%}">delete pet</a><br>
+                    <a href="{% url 'edit_pet' pet.id%}">edit pet</a>
+
+                </li>
+            {% endfor %}
+
+    </ul>
+    <a href="{% url 'pet_add' %}"> add pet</a>
+    
+</body>
+</html>
