@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            background-color: blue;
+            height: 300px;
+            width: 500px;
+            padding: 50px;
+            content: center;
+        }
+        a{
+        color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="pet_name">Pet name</label>
+        <input type="text" name="pet_name" id="pet_name"><br><br>
+        <label for="pet_image">pet image</label>
+        <input type="file" name="pet_image" id="pet_image"><br><br>
+        <button type="submit">upload</button>
+    </form>
+    <br>
+    <a href="{% url 'pet_list' %}">view pet list</a>
+    </div>
+</body>
+</html>

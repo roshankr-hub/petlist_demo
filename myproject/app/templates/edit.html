@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit pet details</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label >Pet name</label>
+        <input type="text" name="pet_name" value="{{pet.pet_name}}"><br><br>
+        <label for="">current pet image</label>
+        <img src="{{ pet.pet_image.url }}" alt="{{pet.pet_name}}" width="200"><br>
+        <input type="file" name="pet_image" ><br>
+        <button type="submit">upload</button>
+        
+
+
+
+    </form>
+    
+</body>
+</html>
